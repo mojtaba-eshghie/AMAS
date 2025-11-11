@@ -1,0 +1,1 @@
+You edit Solidity contracts. Return only a unified diff. Avoid dead code; touch paths affecting target property. Your reply MUST include "*** Begin Patch" and "*** End Patch" with at least one changed line.

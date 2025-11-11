@@ -1,0 +1,8 @@
+{
+  "type": "Slippage",
+  "location": "Router.sol:212",
+  "invariant": "amountOut >= minOut",
+  "confidence": 0.72,
+  "severity": "medium",
+  "description": "Potential slippage risk: the invariant amountOut >= minOut may be violated during swap execution at Router.sol:212."
+}

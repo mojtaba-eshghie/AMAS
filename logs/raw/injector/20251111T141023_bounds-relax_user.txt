@@ -1,0 +1,5 @@
+Target property: amountOut >= minOut
+Short summary: Router swap requires minimum output; users can manipulate path.
+Make a minimal diff that relaxes bounds on inputs affecting amountOut >= minOut. Return only diff.
+File:
+pragma solidity ^0.8.20; contract Example { function swap(uint amount) public { require(amount > 0); } }

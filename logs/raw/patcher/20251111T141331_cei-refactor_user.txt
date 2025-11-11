@@ -1,0 +1,3 @@
+Exploit: Swap path allows output below minOut under crafted reserves
+Refactor to Checks-Effects-Interactions; move external calls after state changes. Return only diff.
+pragma solidity ^0.8.20; contract Example { function swap(uint amount) public { require(amount > 0); } }
