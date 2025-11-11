@@ -1,0 +1,1 @@
+Given a trace snippet and code context, output a JSON finding. No prose.

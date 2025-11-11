@@ -25,6 +25,10 @@ SAVE_RAW    = os.getenv('COEVA_SAVE_RAW', '0') == '1'   # save raw LLM input/out
 RAW_DIR     = os.getenv('COEVA_RAW_DIR', 'logs/raw')    # where to put raw txt
 ARTIFACTS_DIR = os.getenv('COEVA_ARTIFACTS_DIR', 'artifacts')  # save artifacts per step
 
+# ── Reasoning-model safety knobs ──────────────────────────────────────────────
+MAX_COMPLETION_TOKENS = int(os.getenv("COEVA_MAX_COMPLETION_TOKENS", "2048"))
+MAX_COMPLETION_CEILING = int(os.getenv("COEVA_MAX_COMPLETION_CEILING", "8192"))
+REASONING_EFFORT = os.getenv("COEVA_REASONING_EFFORT", "low")  # low|medium|high|omit
 
 
 # Temperature (some models reject non-default); use "omit" to not send it

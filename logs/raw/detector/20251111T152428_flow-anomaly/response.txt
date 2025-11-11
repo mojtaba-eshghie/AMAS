@@ -1,0 +1,1 @@
+{"type":"Flow anomaly","location":"{loc}","invariant":"{inv}","confidence":0.65}

@@ -60,8 +60,12 @@ class AgentRunner:
         raise ValueError('unknown role')
 
     def _fill_template(self, template: str, ctx: Dict[str, Any]) -> str:
+        # Leave unknown placeholders intact instead of failing hard.
+        class _SafeDict(dict):
+            def __missing__(self, key):
+                return '{' + key + '}'
         try:
-            return template.format(**ctx)
+            return template.format_map(_SafeDict(**ctx))
         except Exception:
             return template
 
@@ -72,7 +76,6 @@ class AgentRunner:
         approx_ucb = _ucb_scores(prior_means, [c if c > 0 else 1 for c in prior_counts]) if isinstance(self.policy, UCB1) else None
 
         names = [s.name for s in self.portfolio]
-        # Per-arm table at DEBUG
         for row in _ucb_table(names, prior_means, prior_counts):
             self.logger.debug(f"UCB  {row}")
 

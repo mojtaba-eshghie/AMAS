@@ -1,6 +1,6 @@
 {
   "type": "Flow anomaly",
-  "location": "Router.sol:212",
-  "invariant": "amountOut >= minOut",
+  "location": "{loc}",
+  "invariant": "{inv}",
   "confidence": 0.65
 }

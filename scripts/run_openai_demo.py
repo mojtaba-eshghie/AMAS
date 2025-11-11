@@ -12,10 +12,16 @@ if str(PROJECT_ROOT) not in sys.path:
 from coeva.controller import AgentRunner
 from coeva.config import PROVIDER
 
+
+# read FILE_TEXT from contracts/example.sol
+with open(PROJECT_ROOT / 'contracts' / 'example.sol', 'r', encoding='utf-8') as f:
+    file_text = f.read()
+
+
 CTX = {
     'property': 'amountOut >= minOut',
     'summary': 'Router swap requires minimum output; users can manipulate path.',
-    'file_text': 'pragma solidity ^0.8.20; contract Example { function swap(uint amount) public { require(amount > 0); } }',
+    'file_text': file_text,
     'target': 'Router',
     'sink_fn': 'swap',
     'args': '["1000"]',
@@ -27,6 +33,9 @@ CTX = {
     'inv': 'amountOut >= minOut',
     'exploit': 'Swap path allows output below minOut under crafted reserves',
 }
+
+
+
 
 def run_role(role: str, steps: int = 2, policy: str = 'ucb1'):
     print(f"\n== {role.upper()} (policy={policy}, provider={PROVIDER}) ==")

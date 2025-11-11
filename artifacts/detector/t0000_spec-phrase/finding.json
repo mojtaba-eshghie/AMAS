@@ -1,6 +1,6 @@
 {
-  "type": "Slippage",
-  "location": "Router.sol:212",
-  "invariant": "amountOut >= minOut",
+  "type": "{spec_type}",
+  "location": "{loc}",
+  "invariant": "{inv}",
   "confidence": 0.72
 }
